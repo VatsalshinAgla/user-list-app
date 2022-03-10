@@ -8,7 +8,7 @@ import Role from './Role/Role'
 import Status from './Status/Status'
 
 function User({ user }) {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     return (
         <tr>
             <td>
@@ -22,7 +22,7 @@ function User({ user }) {
                     </div>
                 </div>
             </td>
-            {/* <td>
+            <td>
                 <Status user={user} />
             </td>
             <td>
@@ -34,7 +34,7 @@ function User({ user }) {
                        
                     </div>
                 </div>
-            </td> */}
+            </td>
         </tr>
     )
 }
