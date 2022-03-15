@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { addSelectedUser } from '../../../redux/actions';
 import Avatar from '../../Avtar/Avtar'
 import Email from '../../Email/Email'
 import Name from '../../Name/Name'
@@ -10,11 +11,11 @@ import Role from './Role/Role'
 import Status from './Status/Status'
 
 function User({ user }) {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     return (
         <tr>
             <td>
-                <div className="row">
+                <div className="row" onMouseEnter={() => dispatch(addSelectedUser(user))}>
                     <div className="col-2">
                         <Avatar avatar={user.avatar} size="img-small" />
                     </div>

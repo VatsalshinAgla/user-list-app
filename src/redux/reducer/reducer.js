@@ -75,6 +75,7 @@ const reducer = (state=initialState,action) => {
             })
             return { ...state, users: userList, selectedUser: selectUser };
         default: return state;
+        case "ADD_SELECTED_USER": return { ...state, selectedUser: action.payload };
     }
 }
 export default reducer;
