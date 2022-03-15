@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import Avatar from '../../Avtar/Avtar'
 import Email from '../../Email/Email'
 import Name from '../../Name/Name'
+import Deletebtn from './Buttons/Deletebtn';
+import Lockbtn from './Buttons/Lockbtn';
 import Role from './Role/Role'
 import Status from './Status/Status'
 
@@ -31,8 +33,9 @@ function User({ user }) {
                         <Role user={user} />
                     </div>
                     <div className="col text-muted">
-                       
+                    {user.role === 'Owner' ? <Lockbtn /> : <Deletebtn user={user} />}
                     </div>
+
                 </div>
             </td>
         </tr>
