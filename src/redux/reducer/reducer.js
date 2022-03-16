@@ -74,8 +74,32 @@ const reducer = (state=initialState,action) => {
                 return !(user.id === action.payload)
             })
             return { ...state, users: userList, selectedUser: selectUser };
+        
+        case "HOVER_USER":
+             return { ...state, selectedUser: action.payload };
+        case "UPDATE_ROLE":
+            let userlist = [...state.users];
+            userlist.forEach((user, index) => {
+                if (user.id === action.payload.id) {
+                    userlist[index].role = action.payload.role;
+                }
+            });
+            return { ...state, users: userlist }
+
+            case "UPDATE_STATUS":
+                let selectedUser = {...state.selectedUser};
+                if (selectedUser.id === action.payload.id) {
+                    selectedUser.status = action.payload.status
+                }
+                let usersList = [...state.users];
+                usersList.forEach((user, index) => {
+                    if (user.id === action.payload.id) {
+                        usersList[index].status = action.payload.status;
+                    }
+                });
+                return { ...state, users: usersList, selectedUser: selectedUser };
         default: return state;
-        case "ADD_SELECTED_USER": return { ...state, selectedUser: action.payload };
     }
+    
 }
 export default reducer;
