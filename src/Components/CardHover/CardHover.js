@@ -55,14 +55,15 @@ function CardHover() {
     );
   } else {
     return (
-      <div className="card-container">
+      <div className="card-container" style={{height:'400px'}}>
         <div className="card hover-card shadow p-3 mb-5 bg-body">
-          <div className="card-body">
-            <h4 className="card-title initial-msg">
+          <div className="card-body" >
+          <img src='https://cdn.pixabay.com/photo/2017/03/08/14/20/flat-2126879__340.png' alt='hoverimg' style={{height:'120px' }}/>
+            <h4 >
               Please Hover On
-              <br />
+              
               the User to see
-              <br />
+              
               User's Full Information.
             </h4>
           </div>
