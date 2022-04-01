@@ -10,31 +10,31 @@ import Lockbtn from './Buttons/Lockbtn';
 import Role from './Role/Role'
 import Status from './Status/Status'
 
-function User({ user }) {
+function User(props) {
     const dispatch = useDispatch();
     return (
         <tr>
             <td>
-                <div className="row" onMouseEnter={() => dispatch(addSelectedUser(user))}>
+                <div className="row" onMouseEnter={() => dispatch(addSelectedUser(props.user))}>
                     <div className="col-2">
-                        <Avatar avatar={user.avatar} size="img-small" />
+                        <Avatar avatar={props.user.avatar} size="img-small" />
                     </div>
                     <div className="col m-auto">
-                        <Name first_name={user.first_name} last_name={user.last_name} />
-                        <Email email={user.email} />
+                        <Name first_name={props.user.first_name} last_name={props.user.last_name} />
+                        <Email email={props.user.email} />
                     </div>
                 </div>
             </td>
             <td>
-                <Status user={user} />
+                <Status user={props.user} />
             </td>
             <td>
                 <div className="row">
                     <div className="col">
-                        <Role user={user} />
+                        <Role user={props.user} />
                     </div>
                     <div className="col text-muted">
-                    {user.role === 'Owner' ? <Lockbtn /> : <Deletebtn user={user} />}
+                    {props.user.role === 'Owner' ? <Lockbtn /> : <Deletebtn user={props.user} />}
                     </div>
 
                 </div>
